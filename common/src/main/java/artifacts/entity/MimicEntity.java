@@ -351,11 +351,11 @@ public class MimicEntity extends Mob implements Enemy {
 
         @Override
         public void tick() {
-            mimic.yHeadRot = mimic.yBodyRot = rotlerp(mimic.getYRot(), rotationDegrees, 90);
-            mimic.setYRot(mimic.yHeadRot);
             if (operation != Operation.MOVE_TO) {
                 mimic.setZza(0);
             } else {
+                mimic.yHeadRot = mimic.yBodyRot = rotlerp(mimic.getYRot(), rotationDegrees, 90);
+                mimic.setYRot(mimic.yHeadRot);
                 operation = Operation.WAIT;
                 if (mimic.onGround()) {
                     // noinspection ConstantConditions
